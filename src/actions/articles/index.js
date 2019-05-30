@@ -14,10 +14,11 @@ export function errorResponse(error) {
     }
 }
 
-export function fetchArticles() {
-    console.log("fetch articles")
+export function fetchArticles(q) {
+    console.log("fetch articles", q)
+    const url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q='+q+'&api-key=A7Byis5MmEBe0Tt7cJr0m5xA6ItzMkWS'
     return dispatch => {
-        return fetch('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=A7Byis5MmEBe0Tt7cJr0m5xA6ItzMkWS')
+        return fetch(url)
                 .then(res => res.json())
                 .then(articles => dispatch(getArticles(articles)))
                 .catch(err => dispatch(errorResponse(err)))

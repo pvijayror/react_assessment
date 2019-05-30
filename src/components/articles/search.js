@@ -6,7 +6,7 @@ const Search = (props) => {
 
     return (
         <Navbar className="bg-light justify-content-between">
-          <Form inline onClick={props.onSubmit}>
+          <Form inline onSubmit={props.onSubmit}>
             <FormControl type="text" placeholder="Search" className=" mr-sm-1" />
             <Button type="submit">Search</Button>
           </Form>

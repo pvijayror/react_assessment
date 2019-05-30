@@ -10,22 +10,21 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { dispatch } = this.props
-    dispatch(fetchArticles())   
+    const [input] = e.target.children
+    dispatch(fetchArticles(input.value))   
   }
   
   render() {
     return (
       <div className="container">
         <Search onSubmit={this.handleSubmit} />
-        { JSON.stringify(this.props.articles)}
-        <Articles />
+        <Articles articles = {this.props.articles} />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log("######", state.articles)
   return {
     articles: state.articles
   }
