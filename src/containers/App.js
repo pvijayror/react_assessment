@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
-import { Form, Button, FormControl } from 'react-bootstrap';
-import Navbar from 'react-bootstrap/Navbar'
+import { connect } from 'react-redux';
+import Search from '../components/articles/search'
+
 
 
 class App extends Component {
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { dispatch } = this.props
+    
+  }
   
 
   render() {
     return (
       <div className="container">
-     <Navbar className="bg-light justify-content-between">
-      <Form inline>
-        <FormControl type="text" placeholder="Search" className=" mr-sm-1" />
-        <Button type="submit">Search</Button>
-      </Form>
-    </Navbar>;
-  </div>
+        <Search onSubmit={this.handleSubmit} />
+      </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps)(App);
