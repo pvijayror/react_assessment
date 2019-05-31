@@ -4,11 +4,11 @@ const initialState = {
 
 export function emailed(state = initialState, action ) {
     switch(action.type) {
-        case 'ARTICLES':
+        case 'EMAILED_ARTICLES':
             console.log("reducer.....");
             return {
                 ...state,
-                articles: action.articles
+                articles: action.emailed
             }
 
         default:
@@ -19,7 +19,7 @@ export function emailed(state = initialState, action ) {
 
 export function shared(state = initialState, action ) {
     switch(action.type) {
-        case 'ARTICLES':
+        case 'SHARED_ARTICLES':
             console.log("reducer.....");
             return {
                 ...state,
@@ -34,7 +34,7 @@ export function shared(state = initialState, action ) {
 
 export function viewed(state = initialState, action ) {
     switch(action.type) {
-        case 'ARTICLES':
+        case 'VIEWED_ARTICLES':
             console.log("reducer.....");
             return {
                 ...state,
