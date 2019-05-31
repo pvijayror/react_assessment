@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Container } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.min.css'
 import Search from '../components/articles/search'
 import { fetchArticles } from '../actions/articles'
@@ -20,13 +21,13 @@ class App extends Component {
   
   render() {
     return (
-      <div className="container">
+      <Container>
         <Search onSubmit={this.handleSubmit} />
         <br />
         <Articles articles = {this.props.articles} />
         <br /> 
         <Footer />
-      </div>
+        </Container>
     );
   }
 }

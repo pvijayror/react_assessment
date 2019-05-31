@@ -1,25 +1,33 @@
 import React, { Fragment } from 'react'
-import { Form, Button, FormControl } from 'react-bootstrap';
-import Navbar from 'react-bootstrap/Navbar'
+import { Navbar, Nav, Form, FormControl, Button , NavDropdown} from 'react-bootstrap';
 
 const Search = (props) => {
 
     return (
      
     <Fragment>
-      <br/>
-    
-      <div className="input-group md-form form-sm form-2 pl-0">
-        <form onSubmit={props.onSubmit} style= { { 'width': '96%' } }>
-          <input className="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search" />
-        </form>  
-        <div className="input-group-append">
-          <span className="input-group-text lime lighten-2" id="basic-text1">
-            <i className="fa fa-search text-grey" aria-hidden="true"></i>
-          </span>
-        </div>
-      </div>
      
+     <Navbar collapseOnSelect expand="lg" bg="info" variant="dark">
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+      <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+  </Navbar.Collapse>
+  <Form inline onSubmit={props.onSubmit} >
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-light">Search</Button>
+    </Form>
+</Navbar>
+    
     </Fragment>
         
     )
