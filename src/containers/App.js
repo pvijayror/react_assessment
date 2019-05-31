@@ -12,6 +12,9 @@ import Emailed from '../components/articles/emailed'
 import Shared from '../components/articles/shared'
 import Viewed from '../components/articles/viewed'
 
+import { getViewedArticles } from '../actions/articles/viewed'
+import { getSharedArticles } from '../actions/articles/shared'
+import { getEmailedArticles } from '../actions/articles/emailed'
 
 class App extends Component {
 
@@ -20,7 +23,10 @@ class App extends Component {
     const { dispatch } = this.props
     const [input] = e.target.children
     console.log(input.value)
-    dispatch(fetchArticles(input.value))   
+    dispatch(fetchArticles(input.value)) 
+    dispatch(getViewedArticles()) 
+    dispatch(getSharedArticles()) 
+    dispatch(getEmailedArticles())     
   }
   
   render() {

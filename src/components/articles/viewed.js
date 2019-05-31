@@ -24,12 +24,25 @@ class Viewed extends React.Component {
         results.map( article =>  
                <tr key={article.id}>
                    <td>
-                     <img src={ this.getImage(article) } />
+                     <img src={ this.getImage(article) } alt='' />
                    </td> 
-                  <td>{ article.title }</td> 
+                  <td>
+                    <div className='responsive'> 
+                        <div className='row'>
+                            <div className='col-md-12'>{ article.title }</div>                         
+                        </div>   
+                        <div className='row'>
+                            <div className='col-md-9' style={{fontSize: '13px', color: 'gray'}}>
+                            { article.abstract }                      
+                            </div>
+                            <div className='col-md-3' style={{fontSize: '13px', color: 'gray'}}>
+                            { article.published_date }
+                            </div>                      
+                        </div>             
+                    </div>    
+                  </td> 
                </tr>
-            ) 
-          
+            )     
     )
 
     render () {
@@ -37,8 +50,8 @@ class Viewed extends React.Component {
                articles: { 
                    articles: { 
                        results
-                    }
-                 }
+                    } = []
+                }
                  } = this.props
         return (
             <div>
