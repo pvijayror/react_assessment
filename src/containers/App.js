@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.min.css'
@@ -7,6 +8,9 @@ import { fetchArticles } from '../actions/articles'
 import Articles from '../components/articles'
 import Footer from '../components/footer'
 
+import Emailed from '../components/articles/emailed'
+import Shared from '../components/articles/shared'
+import Viewed from '../components/articles/viewed'
 
 
 class App extends Component {
@@ -23,6 +27,12 @@ class App extends Component {
     return (
       <Container>
         <Search onSubmit={this.handleSubmit} />
+        <Router>
+           <Route exact path="/" component={Viewed} />
+           <Route  path="/emailed-articles" component={Emailed} />
+           <Route  path="/shared-articles" component={Shared} />
+           <Route  path="/viewed-articles" component={Viewed} />
+        </Router>  
         <br />
         <Articles articles = {this.props.articles} />
         <br /> 
@@ -34,7 +44,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    articles: state.articles
+    articles: state.articles,
+    emailed: state.emailed
   }
 }
 

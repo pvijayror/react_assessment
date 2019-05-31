@@ -3,7 +3,6 @@ import React from 'react';
 
 class Articles extends React.Component {
 
-
     render () {
        const { 
                 articles: { 
@@ -13,7 +12,7 @@ class Articles extends React.Component {
 
         function thumb(article) {
            try{
-           let url = article.multimedia && article.multimedia.filter(m => m.subtype === "thumbnail" )[0].url
+           let url = article.multimedia && article.multimedia.filter(m => m.subtype === "blog533" )[0].url
            return <img src={`https://www.nytimes.com/${url}`} className='img-responsive' style={{"width": "100%" }}/>
            }catch(e) {
             return <img src={`./no-image.jpg`} width='75' height='75'className='img-responsive' style={{"width": "100%" }} />  
