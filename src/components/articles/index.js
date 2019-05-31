@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class Articles extends React.Component {
 
@@ -16,19 +17,21 @@ class Articles extends React.Component {
            let url = article.multimedia && article.multimedia.filter(m => m.subtype === "thumbnail" )[0].url
            return <img src={`https://www.nytimes.com/${url}`}/>
            }catch(e) {
-            return <img src={`./no_image.png`} width='75' height='75'/>  
+            return <img src={`./no-image.jpg`} width='75' height='75'/>  
            }
         } 
 
         const Article = ({key, article}) => (
-            <div className='row border border-light'>
-               <div className='col-sm-1'>{ thumb(article) }</div>
-               <div className='col-sm-10'>{ article.snippet }</div>
-               <div className='col-sm-1'>
-                   <a href='#'>
-                        <img src={`./arrow.jpg`} width='25' height='25'/> 
-                   </a></div>
+            <a href=''>
+            <div className='row border border-light'>             
+                <div className='col-sm-1'>{ thumb(article) }</div>
+                <div className='col-sm-10'>{ article.snippet }</div>
+                <div className='col-sm-1 pull-right'>
+                    <img src={`./arrow.jpg`} width='25' height='25'/>             
+               </div>            
             </div>
+            <br/>
+            </a>
         );
             
         return (
