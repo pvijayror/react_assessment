@@ -10,11 +10,11 @@ const Search = (props) => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="mr-auto">              
                     <NavDropdown title="DropDown" id="collasible-nav-dropdown">
-                      <NavDropdown.Item href="emailed-articles">Emailed Articles</NavDropdown.Item>
+                      <NavDropdown.Item href="/emailed-articles">Emailed Articles</NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="shared-articles">Shared Articles</NavDropdown.Item>
+                      <NavDropdown.Item href="/shared-articles">Shared Articles</NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="viewed-articles">Viewed Articles</NavDropdown.Item>
+                      <NavDropdown.Item href="/viewed-articles">Viewed Articles</NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
               </Navbar.Collapse>

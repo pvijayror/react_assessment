@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.min.css'
@@ -15,6 +15,7 @@ import Viewed from '../components/articles/viewed'
 import { getViewedArticles } from '../actions/articles/viewed'
 import { getSharedArticles } from '../actions/articles/shared'
 import { getEmailedArticles } from '../actions/articles/emailed'
+import Detail from '../components/articles/detail';
 
 class App extends Component {
 
@@ -33,12 +34,15 @@ class App extends Component {
     return (
       <Container>
         <Search onSubmit={this.handleSubmit} />
-        <Router>
+        <BrowserRouter>
+         <Switch>
            <Route exact path="/" component={Viewed} />
            <Route  path="/emailed-articles" component={Emailed} />
            <Route  path="/shared-articles" component={Shared} />
-           <Route  path="/viewed-articles" component={Viewed} />
-        </Router>  
+           <Route  exact path="/viewed-articles" component={Viewed} />
+           <Route  path="/viewed-articles/:id" component={Detail} />
+           </Switch>  
+        </BrowserRouter>  
         <br />
         <Articles articles = {this.props.articles} />
         <br /> 
