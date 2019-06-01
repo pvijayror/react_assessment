@@ -19,8 +19,8 @@ const Search = (props) => {
                   </Nav>
               </Navbar.Collapse>
             <Form inline onSubmit={props.onSubmit} >
-              <FormControl type="text" placeholder="Most Viewed " className="mr-sm-2" />
-              <Button variant="outline-light">Search</Button>
+              <FormControl type="text" placeholder="Most Viewed " className="mr-sm-2" />            
+              <input type="submit" className='btn btn-success' value="Search" />
             </Form>
           </Navbar>
         </Fragment>

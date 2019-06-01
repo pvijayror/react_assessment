@@ -20,12 +20,9 @@ class Detail extends Component {
         return image     
     }
 
-    render() {
-
-        const { article } = this.props
-        return(
-            <div>
-                <br />  
+    articleDetail = article => (
+         <div>
+            <br />  
                 <CardColumns> 
                     <Card.Img src= {this.getImage(article)} height="300"/>
                 </CardColumns>
@@ -34,23 +31,34 @@ class Detail extends Component {
                     <Card.Body>
                     <Card.Title>{ article.title }</Card.Title>
                     <Card.Text>
-                       { article.source}
+                    { article.source}
                     </Card.Text>
                     <Card.Text>
-                       { article.abstract}
+                    { article.abstract}
                     </Card.Text>
-                     
+                    
                     </Card.Body>
                 </Card>
                 <br />
-              <div><Link to="/viewed-articles" style={ {fontWeight: 'bold'}}>Back</Link></div>
-         </div>
+            <div><Link to="/viewed-articles" style={ {fontWeight: 'bold'}}>Back</Link></div>
+            </div>      
+            )
+
+    render() {
+       
+        const { article } = this.props
+        return(
+            <div>
+                { Object.entries(article).length !== 0 ? this.articleDetail(article) : ''}             
+             </div>
         )
     }
 }
 
 const mapToStateProps = (state, props) => {
+
     const id = props.match.params.id;
+
     const { articles: {  results } = [] } = state.viewed
 
     const articles = results && results.filter(o => parseInt(o.id) === parseInt(id) )

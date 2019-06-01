@@ -27,7 +27,8 @@ class App extends Component {
     dispatch(fetchArticles(input.value)) 
     dispatch(getViewedArticles()) 
     dispatch(getSharedArticles()) 
-    dispatch(getEmailedArticles())     
+    dispatch(getEmailedArticles())
+    console.log("ddddd")     
   }
   
   render() {
